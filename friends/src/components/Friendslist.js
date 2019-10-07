@@ -1,8 +1,12 @@
 import React from "react";
+import FriendForm from "./FriendForm"
 
 const FriendsList = () => {
     return(
-        <h3>List of Friends</h3>
+        <div className="friendlist">
+        <h2>List of Friends</h2>
+        <FriendForm />
+        </div>
     )
 }
 export default FriendsList

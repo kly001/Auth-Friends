@@ -31,8 +31,10 @@ class Login extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="login">
        <h2>Login Page</h2>
+
+       <img src="https://images.pexels.com/photos/1049764/pexels-photo-1049764.jpeg?cs=srgb&dl=black-cat-black-keyboard-cat-1049764.jpg&fm=jpg"/>
         <form onSubmit={this.login}>
           <input
             type="text"
