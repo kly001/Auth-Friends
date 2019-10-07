@@ -1,31 +1,34 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
-import Login from "./components/Login";
-import Home from "./components/Home";
-import './App.css';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import Login from "./components/Login"
+import Home from "./components/Home"
 import FriendsList from './components/Friendslist';
+import FriendForm from "./components/FriendForm"
+
+import './App.css';
 
 function App() {
   return (
     <Router>
     <div className="App">
-    <ul>
-         <li>
-            <Link to="/">Home</Link>
+      <ul>
+          <li>
+              <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to="/login">Login</Link>
+              <Link to="/login">Login</Link>
           </li>
           <li>
-            <Link to="/protected">Protected Page</Link>
+              <Link to="/protected">FriendsList</Link>
           </li>
-        </ul>
-
-        <Switch>
-          <Route path="/" component={Home}/>
-          <Route path="/login" component={Login} />
-          <Route component={Login} />
-        </Switch>
+          <li>
+              <Link to="/friendform">FriendForm</Link>
+          </li>
+      </ul>
+        <Route exact path="/" component={Home}/>
+        <Route  path="/login" component={Login} />
+        <Route path="/friendform" component={FriendForm}/>
+        <Route  path="/protected" component={FriendsList} />
     </div>
     </Router>
   );
