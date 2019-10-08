@@ -1,8 +1,31 @@
 import React from "react";
 import FriendForm from "./FriendForm"
 
+import {axiosWithAuth} from "../utils/axiosWithAuth";
 
-const FriendsList = () => {
+class FriendsList extends React.Component {
+    state={
+        friends:[]
+    }
+   
+
+    componentDidMount() {
+        this.getData()
+    }
+
+    getData = () => {
+        axiosWithAuth().get("/friends")
+        .then(res=> {
+            console.log("FriendsList res:",res)
+            this.setState({
+                
+            })
+        })
+        .catch(error => console.log(error)
+
+        )
+    }
+    render() {
     return(
         <div className="friendslist">
             <FriendForm />
@@ -11,4 +34,6 @@ const FriendsList = () => {
         </div>
     )
 }
+}
+
 export default FriendsList
