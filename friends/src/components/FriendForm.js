@@ -1,5 +1,5 @@
 import React from 'react';
-import { axiosWithAuth } from '../utils/axiosWithAuth';
+import axios from "axios";
 
 class FriendForm extends React.Component {
   state = {
@@ -22,7 +22,7 @@ class FriendForm extends React.Component {
 
   addFriend = event => {
     event.preventDefault();
-    axiosWithAuth()
+    axios
       .post('/friends', this.state.friends)
       .then(res => {
         localStorage.setItem('token', res.data.payload);
@@ -33,7 +33,7 @@ class FriendForm extends React.Component {
 
   render() {
     return (
-      <div classNme="friendform">
+      <div className="friendform">
        <h2>FriendForm</h2>
         <form onSubmit={this.addFriend}>
           <input
