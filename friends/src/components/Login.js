@@ -1,11 +1,11 @@
-import React from 'react';
-import { axiosWithAuth } from '../utils/axiosWithAuth';
+import React from "react";
+import { axiosWithAuth } from "../utils/axiosWithAuth";
 
 class Login extends React.Component {
   state = {
     credentials: {
-      username: '',
-      password: ''
+      username: "",
+      password: ""
     }
   };
 
@@ -21,10 +21,10 @@ class Login extends React.Component {
   login = event => {
     event.preventDefault();
     axiosWithAuth()
-      .post('/login', this.state.credentials)
+      .post("/login", this.state.credentials)
       .then(res => {
-        localStorage.setItem('token', res.data.payload);
-        this.props.history.push('/friendslist');
+        localStorage.setItem("token", res.data.payload);
+        this.props.history.push("/friendslist");
       })
       .catch(error => console.log(error));
   };
@@ -34,7 +34,7 @@ class Login extends React.Component {
       <div className="login">
        <h2>Login Page</h2>
 
-       <img src="https://images.pexels.com/photos/1049764/pexels-photo-1049764.jpeg?cs=srgb&dl=black-cat-black-keyboard-cat-1049764.jpg&fm=jpg"/>
+       <img src="https://images.pexels.com/photos/1049764/pexels-photo-1049764.jpeg?cs=srgb&dl=black-cat-black-keyboard-cat-1049764.jpg&fm=jpg" alt="black cat on keyboard"/>
         <form onSubmit={this.login}>
           <input
             type="text"

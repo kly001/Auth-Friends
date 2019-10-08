@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route,Switch, Link } from 'react-router-dom';
 import Login from "./components/Login"
 import Home from "./components/Home"
 import FriendsList from './components/Friendslist';
@@ -24,9 +24,11 @@ function App() {
           </li>
          
       </ul>
-        <Route  path="/" component={Home}/>
+      <Switch>
+        <Route  exact path="/" component={Home}/>
         <Route  path="/login" component={Login} />
         <PrivateRoute  exact path="/friendslist" component={FriendsList} />
+      </Switch>
     </div>
     </Router>
   );
